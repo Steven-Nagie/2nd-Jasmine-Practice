@@ -1,0 +1,5 @@
+To get Karma set up to test Angular:
+
+1. Set up Express to serve index.html
+2. Install karma and all related dev dependencies (4 in total)
+3. karma init from the command line. This has to be done from PowerShell, not git bash.

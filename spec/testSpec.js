@@ -19,8 +19,31 @@ describe('testFunction', function() {
 
 //Now let's write a function that calls an api and receives a user item back.
 //Before we write any code, let's build the tests to test what it should be doing.
-describe('getUser', function() {
-  it('should exist', function() {
-    expect(getUser).toEqual(jasmine.any(Function));
+describe('mainCtrl', function() {
+  //This helps Jasmine recognize the angular module
+  beforeEach(angular.mock.module('app'));
+
+  var $controller;
+
+  beforeEach(inject(function(_$controller_){
+    // This creates a $controller variable which we can use later to call the controller in question in order to properly access its content.
+    // The injector function unwraps the underscores from around the parameter names when matching.
+    $controller = _$controller_;
+  }))
+
+  describe('$scope.getUser', function() {
+    // This will reach into the specific mainCtrl controller so we can properly access its stuff.
+    beforeEach(function() {
+      var $scope = {};
+      var controller = $controller('mainCtrl', { $scope: $scope });
+    })
+
+    it('should exist', function() {
+      expect($scope.getUser).toEqual(jasmine.any(Function));
+    })
+
+    it('should retrieve a user object', function() {
+      expect($scope.getUser()).toEqual(jasmine.any(Object));
+    })
   })
 })
