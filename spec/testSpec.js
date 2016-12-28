@@ -1,0 +1,26 @@
+describe('testFunction', function() {
+
+  //We can check if the testFunction exists and is a function by asking if it's equal to jasmine.any(Function);
+  it('should exist', function() {
+    expect(testFunction).toEqual(jasmine.any(Function));
+  });
+
+  it('should multiply numbers by two', function() {
+    //Automate testing here. We can write one for loop and do a as many tests as we want to really make sure that the function is working...
+    for (var i = 1; i <= 10; i++) {
+      expect(testFunction(i)).toEqual(i*2);
+    }
+    //...or we can write the tests out one by one using integers.
+    expect(testFunction(2)).toEqual(4);
+    expect(testFunction(4)).toEqual(8);
+    expect(testFunction(8)).toEqual(16);
+  })
+});
+
+//Now let's write a function that calls an api and receives a user item back.
+//Before we write any code, let's build the tests to test what it should be doing.
+describe('getUser', function() {
+  it('should exist', function() {
+    expect(getUser).toEqual(jasmine.any(Function));
+  })
+})
