@@ -25,9 +25,14 @@ app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/src'));
 
+app.get('/users', function(req, res, next) {
+  res.json({username: "Steven"});
+})
+
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/index.html'));
 });
+
 
 app.listen(port, function() {
   console.log("Listening on port ", port);

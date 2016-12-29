@@ -51,5 +51,16 @@ describe('mainCtrl', function() {
       var controller = $controller('mainCtrl', { $scope: $scope });
       expect($scope.getUser()).toEqual(jasmine.any(Object));
     })
+
+    describe("$scope.username", function() {
+      // The done() function allows us to properly do async. It will ensure that all the code above it has finished before moving on, where we check for the $scope.username. 
+      it('should have a username of "Steven"', function(done) {
+        var $scope = {};
+        var controller = $controller('mainCtrl', { $scope: $scope });
+        $scope.getUser();
+        done();
+        expect($scope.username).toEqual({username: "Steven"})
+      })
+    })
   })
 })
