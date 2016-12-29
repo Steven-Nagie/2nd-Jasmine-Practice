@@ -21,7 +21,7 @@ describe('testFunction', function() {
 //Before we write any code, let's build the tests to test what it should be doing.
 describe('mainCtrl', function() {
   //This helps Jasmine recognize the angular module
-  beforeEach(angular.mock.module('app'));
+  beforeEach(module('app'));
 
   var $controller;
 
@@ -33,16 +33,22 @@ describe('mainCtrl', function() {
 
   describe('$scope.getUser', function() {
     // This will reach into the specific mainCtrl controller so we can properly access its stuff.
-    beforeEach(function() {
-      var $scope = {};
-      var controller = $controller('mainCtrl', { $scope: $scope });
-    })
+    // At least, it should. But for whatever reason we can't do this beforeEach, we have to do it within each thing.
+    // beforeEach(function() {
+    //   var $scope = {};
+    //   var controller = $controller('mainCtrl', { $scope: $scope });
+    // })
+
 
     it('should exist', function() {
+      var $scope = {};
+      var controller = $controller('mainCtrl', { $scope: $scope });
       expect($scope.getUser).toEqual(jasmine.any(Function));
     })
 
     it('should retrieve a user object', function() {
+      var $scope = {};
+      var controller = $controller('mainCtrl', { $scope: $scope });
       expect($scope.getUser()).toEqual(jasmine.any(Object));
     })
   })

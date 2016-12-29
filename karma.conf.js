@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../',
+    basePath: '',
 
 
     // frameworks to use
@@ -14,13 +14,29 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
+    // files: [
+    //   'node_modules/angular/angular.js', // angular
+    //   'node_modules/angular-mocks/angular-mocks.js', // loads the modules for tests
+    //   './src/test.js', // The original, simple test.js file
+    //   './src/mainCtrl.js', // The main controller
+    //   './src/app.js', // Our app
+    //   './spec/testSpec.js' // The test spec
+    // ],
+
+    // files: [
+    //   '/node_modules/angular/angular.js', // angular
+    //   '/node_modules/angular-mocks/angular-mocks.js', // loads the modules for tests
+    //   'src/*.js', // All files with a 'js' extension in the source directory
+    //   'spec/testSpec.js' // The test spec
+    // ],
+
     files: [
-      './node_modules/angular/angular.js', // angular
-      './node_modules/angular-mocks/angular-mocks.js', // loads the modules for tests
-      './src/mainCtrl.js', // The main controller_
-      './src/app.js', // Our app
-      './src/test.js', // The original, simple test.js file
-      './spec/testSpec.js' // The test spec
+      'node_modules/angular/angular.js', // angular
+      'node_modules/angular-mocks/angular-mocks.js', // loads the modules for tests
+      './src/test.js', // The original, simple test.js files
+      './src/app.js', // The app
+      './src/mainCtrl.js', // The main controller
+      './spec/testSpec.js' //The test spec
     ],
 
 
@@ -51,7 +67,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes
